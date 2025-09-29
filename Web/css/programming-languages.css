@@ -1,0 +1,178 @@
+/* Programming Languages Section Styles */
+.programming-languages-section {
+  margin-top: 50px;
+}
+
+.languages-list.owl-carousel .item {
+  margin-right: 30px;
+}
+
+.language-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.language-box:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.language-icon {
+  margin-bottom: 20px;
+}
+
+.tech-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.language-box h3 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-family: "Raleway", sans-serif;
+}
+
+.language-box p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.proficiency {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: auto;
+}
+
+.proficiency.advanced {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: white;
+}
+
+.proficiency.intermediate {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: white;
+}
+
+.proficiency.beginner {
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  color: white;
+}
+
+/* Owl Carousel Navigation Styles for Programming Languages */
+.programming-languages-section .owl-nav {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.programming-languages-section .owl-nav button {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  font-size: 18px !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  margin: 0 10px !important;
+  transition: all 0.3s ease !important;
+}
+
+.programming-languages-section .owl-nav button:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  transform: scale(1.1);
+}
+
+.programming-languages-section .owl-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.programming-languages-section .owl-dots .owl-dot {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.programming-languages-section .owl-dots .owl-dot span {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.programming-languages-section .owl-dots .owl-dot.active span,
+.programming-languages-section .owl-dots .owl-dot:hover span {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .language-box {
+    height: 350px;
+    padding: 30px 20px;
+  }
+
+  .tech-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .language-box h3 {
+    font-size: 20px;
+  }
+
+  .language-box p {
+    font-size: 13px;
+  }
+
+  .languages-list.owl-carousel .item {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-box {
+    height: 320px;
+    padding: 25px 15px;
+  }
+
+  .tech-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .language-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .language-box p {
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+}
