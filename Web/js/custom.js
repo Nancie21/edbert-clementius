@@ -42,7 +42,7 @@
         })
       })
     })
-    if ($(".facts-list").length) {
+    if ($(".facts-list").length && !$(".facts-list").hasClass("owl-loaded")) {
       $(".facts-list").owlCarousel({
         loop: true,
         nav: false,
@@ -102,7 +102,7 @@
         },
       })
     }
-    if ($(".gallery-list").length) {
+    if ($(".gallery-list").length && !$(".gallery-list").hasClass("owl-loaded")) {
       $(".gallery-list").owlCarousel({
         loop: false,
         nav: false,
@@ -157,10 +157,11 @@
         navigation: true,
         navigationPosition: "right",
         scrollOverflow: true,
+        normalScrollElements: ".owl-carousel, .gallery-list, .services-list, .languages-list, .testimonials-slider",
         responsiveWidth: 768,
         responsiveHeight: 600,
         responsiveSlides: true,
-        afterLoad: (origin, destination, direction) => {
+        afterLoad: (origin, destination) => {
           if (destination.index === 0) {
             $(".header-top").addClass("header-white")
           } else {
@@ -211,6 +212,60 @@
       .on("click", ".side-menu .navbar-nav li a", () => {
         $("body").removeClass("sidemenu-open")
       })
+
+    // Smooth Scrolling for Navigation Links
+    $(".navigation-menu a").click((e) => {
+      $(".nav-box").removeClass("active")
+    })
+
+    // This makes the first 3 "My Work" items (relative indexes 0..2) clickable across originals and clones.
+    $(() => {
+      const $gallery = $(".gallery-list")
+      if (!$gallery.length) return
+      const keys = ["proj1", "proj2", "proj3"] // must match keys in project-details.js
+
+      function wireProjectLinks() {
+        const owl = $gallery.data("owl.carousel")
+        if (!owl) return
+
+        // For every slide (including clones), compute its original index and overlay a full-card anchor for the first 3.
+        $gallery.find(".owl-item .item").each(function () {
+          const $item = $(this)
+          const relIndex = owl.relative($item.closest(".owl-item").index())
+
+          // remove any old overlays before re-adding
+          $item.find("a.project-link-overlay").remove()
+
+          if (relIndex >= 0 && relIndex < keys.length) {
+            const href = "project.html?project=" + keys[relIndex]
+            $item.css("position", "relative").css("cursor", "pointer")
+            $("<a/>", {
+              class: "project-link-overlay",
+              href,
+              "aria-label": "Open project " + (relIndex + 1),
+            })
+              .css({
+                position: "absolute",
+                left: 0,
+                top: 0,
+                right: 0,
+                bottom: 0,
+                zIndex: 10,
+                display: "block",
+              })
+              .appendTo($item)
+          }
+        })
+      }
+
+      // Run after Owl is ready and keep updated on changes/resizes
+      if ($gallery.hasClass("owl-loaded")) {
+        wireProjectLinks()
+      } else {
+        $gallery.on("initialized.owl.carousel", wireProjectLinks)
+      }
+      $gallery.on("changed.owl.carousel refreshed.owl.carousel resized.owl.carousel", wireProjectLinks)
+    })
   })
 })(window.jQuery, window, document)
 ;(($) => {
@@ -275,7 +330,7 @@
   }
 
   // Facts Carousel
-  if ($(".facts-list").length) {
+  if ($(".facts-list").length && !$(".facts-list").hasClass("owl-loaded")) {
     $(".facts-list").owlCarousel({
       items: 1,
       loop: true,
@@ -289,7 +344,7 @@
   }
 
   // Gallery Carousel
-  if ($(".gallery-list").length) {
+  if ($(".gallery-list").length && !$(".gallery-list").hasClass("owl-loaded")) {
     $(".gallery-list").owlCarousel({
       items: 3,
       loop: true,

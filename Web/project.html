@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Project Details" />
+    <meta name="author" content="" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet" />
+    <title>Project Details</title>
+
+    <!-- match index.html CSS for consistent design -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/fullpage.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/templatemo-style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/programming-languages.css" />
+    <style>
+      /* Lift content above background video and add spacing */
+      .section { position: relative; z-index: 2; padding: 120px 0 80px; }
+      /* Show animated blocks immediately on this standalone page */
+      .section .animate { opacity: 1 !important; visibility: visible !important; transform: none !important; }
+      /* Screenshot styling */
+      #project-screenshots,
+      #project-screenshots .item figure { margin: 0; }
+      #project-screenshots img { width: 100%; height: auto; display: block; border-radius: 8px; }
+      /* Simple button styling to match theme */
+      .btn { background: #00bcd4; color: #fff; border-radius: 24px; padding: 10px 18px; display: inline-block; }
+      .btn:hover { background: #0099ad; color: #fff; }
+    </style>
+  </head>
+  <body>
+    <div id="video">
+      <div class="preloader">
+        <div class="preloader-bounce">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- Header copied for consistency -->
+      <header id="header">
+        <div class="container-fluid">
+          <div class="navbar">
+            <a href="index.html#slide01" id="logo" title="Edbert's Portfolio">Edbert</a>
+            <div class="navigation-row">
+              <nav id="navigation">
+                <button type="button" class="navbar-toggle"><i class="fa fa-bars"></i></button>
+                <div class="nav-box navbar-collapse">
+                  <ul class="navigation-menu nav navbar-nav navbars" id="nav">
+                    <li><a href="index.html#slide01">Home</a></li>
+                    <li><a href="index.html#slide02">About Me</a></li>
+                    <li><a href="index.html#slide06">My Work</a></li>
+                    <li><a href="index.html#slide07">Contact Me</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Keep background video for consistency -->
+      <video autoplay muted loop id="myVideo">
+        <source src="images/video bg.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <main class="section">
+      <div class="section-inner">
+        <div class="row justify-content-center">
+          <div class="col-md-8 wide-col-laptop">
+            <div class="title-block animate" data-animate="fadeInUp">
+              <span>Project</span>
+              <h2 id="project-title">Project Title</h2>
+            </div>
+
+            <div class="animate" data-animate="fadeInUp">
+              <p id="project-description">Short project description will appear here.</p>
+            </div>
+
+            <!-- Screenshots slot; populated by JS -->
+            <div class="gallery-section animate" data-animate="fadeInUp" style="margin-top: 20px;">
+              <div id="project-screenshots" class="gallery-list owl-carousel project-gallery">
+                <div class="item">
+                  <figure><img src="images/item-1.jpg" alt="Project screenshot 1" /></figure>
+                </div>
+                <div class="item">
+                  <figure><img src="images/item-2.jpg" alt="Project screenshot 2" /></figure>
+                </div>
+                <div class="item">
+                  <figure><img src="images/item-3.jpg" alt="Project screenshot 3" /></figure>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project details template -->
+            <section class="animate" data-animate="fadeInUp" style="margin-top: 24px;">
+              <h3>Overview</h3>
+              <p id="project-overview">
+                This is a short overview of the project. Replace this with a concise summary of the goal,
+                problem it solves, and your role.
+              </p>
+            </section>
+
+            <section class="animate" data-animate="fadeInUp" style="margin-top: 24px;">
+              <div class="row">
+                <div class="col-md-6">
+                  <h4>Key Features</h4>
+                  <ul>
+                    <li>Feature one that highlights the core value</li>
+                    <li>Feature two with a measurable outcome</li>
+                    <li>Feature three demonstrating technical depth</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h4>Tech Stack</h4>
+                  <ul>
+                    <li>HTML, CSS (Bootstrap)</li>
+                    <li>JavaScript (jQuery, Owl Carousel)</li>
+                    <li>Any APIs, libraries, or tools used</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section class="animate" data-animate="fadeInUp" style="margin-top: 24px;">
+              <h4>Resources</h4>
+              <div class="row" style="gap: 12px;">
+                <!-- replace hrefs with your links -->
+                <a id="project-live-link" class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
+                <a id="project-download-link" class="btn" href="#" target="_blank" rel="noopener">Download Code</a>
+              </div>
+            </section>
+
+            <div class="animate" data-animate="fadeInUp" style="margin-top: 24px;">
+              <a href="index.html#slide06" class="btn">← Back to My Work</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="social-icons">
+      <div class="text-right">
+        <ul class="social-icons">
+          <li><a href="https://www.facebook.com/edbert.clementius" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/clementius-edbert-william-wiguna-b08799296/" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="https://www.instagram.com/clementius123/" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts: same stack for consistency -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/fullpage.min.js"></script>
+    <script src="js/scrolloverflow.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/form.js"></script>
+
+    <!-- Populate details from query string -->
+    <script src="js/project-details.js"></script>
+
+    <!-- Initialize screenshots carousel on this page only; adjust timing here -->
+    <script>
+      (function () {
+        if (!window.jQuery) return;
+        var $ = window.jQuery;
+        var $gal = $('#project-screenshots');
+
+        // Prevent double init
+        if ($gal.data('owl-initialized')) return;
+
+        if (typeof $gal.owlCarousel === 'function') {
+          $gal.owlCarousel({
+            items: 1,
+            loop: true,
+            autoplay: true,
+            autoplayHoverPause: true,
+            autoplayTimeout: 6000,
+            smartSpeed: 500,
+            dots: true,
+            nav: false
+          });
+          $gal.data('owl-initialized', true);
+        }
+      })();
+    </script>
+
+    <!-- Keep custom last to leverage shared behaviors -->
+    <script src="js/custom.js"></script>
+  </body>
+</html>

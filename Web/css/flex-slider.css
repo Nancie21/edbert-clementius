@@ -112,9 +112,9 @@ html[xmlns] .flexslider .slides {
 .carousel li {
   margin-right: 5px;
 }
-.flex-direction-nav {
+/* .flex-direction-nav {
   *height: 0;
-}
+} */
 .flex-direction-nav a {
   text-decoration: none;
   display: block;
@@ -209,7 +209,7 @@ html[xmlns] .flexslider .slides {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  /* *display: inline; */
 }
 .flex-control-paging li a {
   width: 11px;
