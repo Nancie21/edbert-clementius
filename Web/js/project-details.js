@@ -14,10 +14,10 @@
     },
     proj2: {
       title: "Skillsync",
-      description: "A brief description of Project Two. Replace this with your real project overview.",
-      screenshots: ["images/item-2.jpg"],
+      description: "Skillsync is a website which allows user to develop skills for living such as cooking , creativity or even programming, in order to enhance intelligence",
+      screenshots: ["images/SKillsync.png"],
       downloadUrl: "#",
-      hero: "images/item-2.jpg", // hero image for the project
+      hero: "images/Skillsync.png", // hero image for the project
     },
     proj3: {
       title: "RUindows",
