@@ -1,196 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Project Details" />
-    <meta name="author" content="" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet" />
-    <title>Project Details</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Project Details">
+  <title>Project Details - Edbert</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/templatemo-style.css">
+  
+  <style>
+    /* Clean carousel styling that works with Owl Carousel */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Raleway', sans-serif;
+      color: #fff;
+    }
+    
+    #video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    
+    #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+    }
+    
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+      padding: 120px 20px 60px;
+      min-height: 100vh;
+    }
+    
+    .carousel-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+    
+    .project-title {
+      text-align: center;
+      font-size: 48px;
+      font-weight: 300;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .project-description {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 50px;
+      opacity: 0.9;
+    }
+    
+    /* Simple carousel styling - let Owl Carousel handle layout */
+    #screenshot-carousel {
+      margin: 0 auto;
+    }
+    
+    #screenshot-carousel .item {
+      padding: 0 15px;
+    }
+    
+    #screenshot-carousel img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      display: block;
+    }
+    
+    /* Navigation arrows styling */
+    .owl-nav button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 188, 212, 0.8);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 24px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .owl-nav button:hover {
+      background: rgba(0, 188, 212, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    /* Moved arrows inward to avoid overlapping the image */
+    .owl-nav button.owl-prev {
+      left: -75px;
+    }
+    
+    .owl-nav button.owl-next {
+      right: -75px;
+    }
+    
+    /* Dots styling */
+    .owl-dots {
+      text-align: center;
+      margin-top: 30px;
+    }
+    
+    .owl-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+      margin: 0 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .owl-dot.active {
+      background: #00bcd4;
+      width: 16px;
+      height: 16px;
+    }
 
-    <!-- match index.html CSS for consistent design -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="css/fullpage.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
-    <link rel="stylesheet" href="css/animate.css" />
-    <link rel="stylesheet" href="css/templatemo-style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="stylesheet" href="css/programming-languages.css" />
-    <style>
-      /* Lift content above background video and add spacing */
-      .section { position: relative; z-index: 2; padding: 120px 0 80px; }
-      /* Show animated blocks immediately on this standalone page */
-      .section .animate { opacity: 1 !important; visibility: visible !important; transform: none !important; }
-      /* Screenshot styling */
-      #project-screenshots,
-      #project-screenshots .item figure { margin: 0; }
-      #project-screenshots img { width: 100%; height: auto; display: block; border-radius: 8px; }
-      /* Simple button styling to match theme */
-      .btn { background: #00bcd4; color: #fff; border-radius: 24px; padding: 10px 18px; display: inline-block; }
-      .btn:hover { background: #0099ad; color: #fff; }
-    </style>
-  </head>
-  <body>
-    <div id="video">
-      <div class="preloader">
-        <div class="preloader-bounce">
-          <span></span><span></span><span></span>
+    /* Added styling for project details sections below carousel */
+    .project-details-section {
+      max-width: 1200px;
+      margin: 60px auto 0;
+      padding: 0 20px;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .overview-text {
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+    
+    .two-column-layout {
+      display: flex;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    
+    .column {
+      flex: 1;
+    }
+    
+    .column ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    
+    .column ul li {
+      font-size: 18px;
+      line-height: 1.8;
+      padding-left: 30px;
+      position: relative;
+      margin-bottom: 15px;
+    }
+    
+    .column ul li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #00bcd4;
+      font-size: 24px;
+    }
+    
+    .resources-section {
+      text-align: center;
+      margin: 60px 0 40px;
+    }
+    
+    .resource-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    
+    .btn-resource {
+      display: inline-block;
+      padding: 18px 40px;
+      background: #00bcd4;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+    }
+    
+    .btn-resource:hover {
+      background: #00acc1;
+      color: white;
+      text-decoration: none;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 188, 212, 0.6);
+    }
+    
+    .back-button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 15px 35px;
+      background: #00bcd4;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+    }
+    
+    .back-button:hover {
+      background: #00acc1;
+      color: white;
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 188, 212, 0.6);
+    }
+    
+    @media (max-width: 768px) {
+      .owl-nav button {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+      
+      /* Adjusted mobile arrow positions */
+      .owl-nav button.owl-prev {
+        left: 10px;
+      }
+      
+      .owl-nav button.owl-next {
+        right: 10px;
+      }
+      
+      .project-title {
+        font-size: 32px;
+      }
+      
+      .two-column-layout {
+        flex-direction: column;
+        gap: 40px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .resource-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn-resource {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+   Background video 
+  <div id="video">
+    <video autoplay muted loop id="myVideo">
+      <source src="images/video bg.mp4" type="video/mp4">
+    </video>
+  </div>
+
+   Header from original 
+  <header id="header">
+    <div class="container-fluid">
+      <div class="navbar">
+        <a href="index.html#slide01" id="logo" title="Edbert's Portfolio">EDBERT</a>
+        <div class="navigation-row">
+          <nav id="navigation">
+            <button type="button" class="navbar-toggle"><i class="fa fa-bars"></i></button>
+            <div class="nav-box navbar-collapse">
+              <ul class="navigation-menu nav navbar-nav navbars" id="nav">
+                <li><a href="index.html#slide01">Home</a></li>
+                <li><a href="index.html#slide02">About Me</a></li>
+                <li><a href="index.html#slide06">My Work</a></li>
+                <li><a href="index.html#slide07">Contact Me</a></li>
+              </ul>
+            </div>
+          </nav>
         </div>
       </div>
+    </div>
+  </header>
 
-      <!-- Header copied for consistency -->
-      <header id="header">
-        <div class="container-fluid">
-          <div class="navbar">
-            <a href="index.html#slide01" id="logo" title="Edbert's Portfolio">Edbert</a>
-            <div class="navigation-row">
-              <nav id="navigation">
-                <button type="button" class="navbar-toggle"><i class="fa fa-bars"></i></button>
-                <div class="nav-box navbar-collapse">
-                  <ul class="navigation-menu nav navbar-nav navbars" id="nav">
-                    <li><a href="index.html#slide01">Home</a></li>
-                    <li><a href="index.html#slide02">About Me</a></li>
-                    <li><a href="index.html#slide06">My Work</a></li>
-                    <li><a href="index.html#slide07">Contact Me</a></li>
-                  </ul>
-                </div>
-              </nav>
-            </div>
+   Main content with carousel 
+  <div class="content-wrapper">
+    <div class="carousel-container">
+      <h1 class="project-title" id="project-title">Project Name</h1>
+      <p class="project-description" id="project-description">Project description will appear here</p>
+      
+       Clean carousel structure 
+      <div id="screenshot-carousel" class="owl-carousel owl-theme">
+         Screenshots will be populated by JavaScript 
+      </div>
+      
+      <!-- Added project details sections below carousel -->
+      <div class="project-details-section">
+        <!-- Overview Section -->
+        <h2 class="section-title">OVERVIEW</h2>
+        <p class="overview-text" id="project-overview">Project overview will appear here</p>
+        
+        <!-- Key Features and Tech Stack in two columns -->
+        <div class="two-column-layout">
+          <div class="column">
+            <h2 class="section-title">KEY FEATURES</h2>
+            <ul id="project-features">
+              <li>Feature one that highlights the core value</li>
+              <li>Feature two with a measurable outcome</li>
+              <li>Feature three demonstrating technical depth</li>
+            </ul>
+          </div>
+          
+          <div class="column">
+            <h2 class="section-title">TECH STACK</h2>
+            <ul id="project-tech">
+              <li>HTML, CSS (Bootstrap)</li>
+              <li>JavaScript (jQuery, Owl Carousel)</li>
+              <li>Any APIs, libraries, or tools used</li>
+            </ul>
           </div>
         </div>
-      </header>
-
-      <!-- Keep background video for consistency -->
-      <video autoplay muted loop id="myVideo">
-        <source src="images/video bg.mp4" type="video/mp4" />
-      </video>
-    </div>
-
-    <main class="section">
-      <div class="section-inner">
-        <div class="row justify-content-center">
-          <div class="col-md-8 wide-col-laptop">
-            <div class="title-block animate" data-animate="fadeInUp">
-              <span>Project</span>
-              <h2 id="project-title">Project Title</h2>
-            </div>
-
-            <div class="animate" data-animate="fadeInUp">
-              <p id="project-description">Short project description will appear here.</p>
-            </div>
-
-            <!-- Screenshots slot; populated by JS -->
-            <div class="gallery-section animate" data-animate="fadeInUp" style="margin-top: 20px;">
-              <div id="project-screenshots" class="gallery-list owl-carousel project-gallery">
-                <div class="item">
-                  <figure><img src="images/item-1.jpg" alt="Project screenshot 1" /></figure>
-                </div>
-                <div class="item">
-                  <figure><img src="images/item-2.jpg" alt="Project screenshot 2" /></figure>
-                </div>
-                <div class="item">
-                  <figure><img src="images/item-3.jpg" alt="Project screenshot 3" /></figure>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project details template -->
-            <section class="animate" data-animate="fadeInUp" style="margin-top: 24px;">
-              <h3>Overview</h3>
-              <p id="project-overview">
-                test
-              </p>
-            </section>
-
-            <section class="animate" data-animate="fadeInUp" style="margin-top: 24px;">
-              <div class="row">
-                <div class="col-md-6">
-                  <h4>Key Features</h4>
-                  <ul>
-                    <li>Feature one that highlights the core value</li>
-                    <li>Feature two with a measurable outcome</li>
-                    <li>Feature three demonstrating technical depth</li>
-                  </ul>
-                </div>
-                <div class="col-md-6">
-                  <h4>Tech Stack</h4>
-                  <ul>
-                    <li>HTML, CSS (Bootstrap)</li>
-                    <li>JavaScript (jQuery, Owl Carousel)</li>
-                    <li>Any APIs, libraries, or tools used</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section class="animate" data-animate="fadeInUp" style="margin-top: 24px;">
-              <h4>Resources</h4>
-              <div class="row" style="gap: 12px;">
-                <!-- replace hrefs with your links -->
-                <a id="project-live-link" class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
-                <a id="project-download-link" class="btn" href="#" target="_blank" rel="noopener">Download Code</a>
-              </div>
-            </section>
-
-            <div class="animate" data-animate="fadeInUp" style="margin-top: 24px;">
-              <a href="index.html#slide06" class="btn">← Back to My Work</a>
-            </div>
+        
+        <!-- Resources Section -->
+        <div class="resources-section">
+          <h2 class="section-title">RESOURCES</h2>
+          <div class="resource-buttons">
+            <a href="#" class="btn-resource" id="project-live-link">LIVE DEMO</a>
+            <a href="#" class="btn-resource" id="project-download-link">DOWNLOAD CODE</a>
           </div>
         </div>
       </div>
-    </main>
-
-    <div id="social-icons">
-      <div class="text-right">
-        <ul class="social-icons">
-          <li><a href="https://www.facebook.com/edbert.clementius" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="https://www.linkedin.com/in/clementius-edbert-william-wiguna-b08799296/" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-          <li><a href="https://www.instagram.com/clementius123/" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-        </ul>
+      
+      <div style="text-align: center;">
+        <a href="index.html#slide06" class="back-button">← BACK TO MY WORK</a>
       </div>
     </div>
+  </div>
 
-    <!-- Scripts: same stack for consistency -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/fullpage.min.js"></script>
-    <script src="js/scrolloverflow.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.inview.min.js"></script>
-    <script src="js/form.js"></script>
+   
+  <div id="social-icons">
+    <div class="text-right">
+      <ul class="social-icons">
+        <li><a href="https://www.facebook.com/edbert.clementius" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/clementius-edbert-william-wiguna-b08799296/" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="https://www.instagram.com/clementius123/" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- Populate details from query string -->
-    <script src="js/project-details.js"></script>
-
-    <!-- Initialize screenshots carousel on this page only; adjust timing here -->
-    <script>
-      (function () {
-        if (!window.jQuery) return;
-        var $ = window.jQuery;
-        var $gal = $('#project-screenshots');
-
-        // Prevent double init
-        if ($gal.data('owl-initialized')) return;
-
-        if (typeof $gal.owlCarousel === 'function') {
-          $gal.owlCarousel({
+  
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/project-details.js"></script>
+  
+   
+  <script>
+    $(document).ready(function() {
+      console.log('[v0] Page loaded, waiting for screenshots...');
+      
+      // Listen for screenshots ready event
+      document.getElementById('screenshot-carousel').addEventListener('screenshotsReady', function(e) {
+        console.log('[v0] Screenshots ready, initializing carousel with ' + e.detail.count + ' items');
+        
+        setTimeout(function() {
+          $('#screenshot-carousel').owlCarousel({
             items: 1,
             loop: true,
             autoplay: true,
+            autoplayTimeout: 4000,
             autoplayHoverPause: true,
-            autoplayTimeout: 6000,
-            smartSpeed: 500,
+            nav: true,
+            navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
             dots: true,
-            nav: false
+            smartSpeed: 600,
+            responsive: {
+              0: { nav: false },
+              768: { nav: true }
+            }
           });
-          $gal.data('owl-initialized', true);
-        }
-      })();
-    </script>
-
-    <!-- Keep custom last to leverage shared behaviors -->
-    <script src="js/custom.js"></script>
-  </body>
+          console.log('[v0] Carousel initialized successfully!');
+        }, 100);
+      });
+    });
+  </script>
+</body>
 </html>

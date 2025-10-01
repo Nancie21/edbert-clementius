@@ -1,0 +1,20 @@
+html,
+body {
+  overflow-y: auto !important;
+  height: auto !important;
+}
+#fullpage,
+.fullpage-wrapper {
+  height: auto !important;
+  transform: none !important;
+}
+.section {
+  height: auto !important;
+  min-height: 0 !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+#video {
+  position: relative;
+}
