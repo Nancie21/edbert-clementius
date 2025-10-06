@@ -425,7 +425,7 @@ a#logo {
 }
 .welcome-title {
   font-weight: 700;
-  font-size: 120px;
+  font-size: 100px;
   margin-bottom: 10px;
   letter-spacing: 0.02em;
 }
@@ -614,7 +614,7 @@ a#logo {
   bottom: 0;
   text-align: left;
   padding: 20px;
-  background-color: rgba(250, 250, 250, 0.25);
+  background-color: rgba(0, 0, 0, 0.85);
   width: 100%;
   height: 60px;
   border-top-left-radius: 0px;
