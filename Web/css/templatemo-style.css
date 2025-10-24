@@ -298,7 +298,7 @@ video {
 02. HEADER CSS
 ================================================*/
 #header {
-  padding: 10px 0;
+  padding: 3px 0;
   position: fixed;
   left: 0;
   right: 0;
@@ -316,7 +316,7 @@ video {
 }
 a#logo {
   text-decoration: none;
-  font-size: 32px;
+  font-size: 24px;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -866,3 +866,6 @@ textarea.form-control {
   background-color: #fff;
   border-radius: 3px;
 }
+
+
+
