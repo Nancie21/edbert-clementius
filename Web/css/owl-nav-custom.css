@@ -1,0 +1,54 @@
+/* Custom styling for Owl Carousel navigation arrows */
+
+/* Position navigation buttons below the carousel instead of on sides */
+.owl-nav {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  pointer-events: all;
+  z-index: 100;
+  margin-top: 20px;
+}
+
+.owl-nav button {
+  pointer-events: all;
+  background: rgba(255, 255, 255, 0.3) !important;
+  color: #fff !important;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.owl-nav button:hover {
+  background: rgba(255, 255, 255, 0.6) !important;
+  transform: scale(1.1);
+}
+
+.owl-nav button.owl-prev {
+  order: -1;
+}
+
+.owl-nav button.owl-next {
+  order: 1;
+}
+
+/* Ensure carousel container has relative positioning */
+.owl-carousel {
+  position: relative;
+}
+
+/* Make sure the carousel wrapper allows proper layout */
+.owl-stage-outer {
+  position: relative;
+}

@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/templatemo-style.css">
+  <!-- Added responsive.css for mobile menu functionality -->
+  <link rel="stylesheet" href="css/responsive.css">
   
   <style>
     /* Clean carousel styling that works with Owl Carousel */
@@ -293,14 +295,14 @@
   </style>
 </head>
 <body>
-   Background video 
+  <!-- Background video -->
   <div id="video">
     <video autoplay muted loop id="myVideo">
       <source src="images/video bg.mp4" type="video/mp4">
     </video>
   </div>
 
-   Header from original 
+  <!-- Header from original -->
   <header id="header">
     <div class="container-fluid">
       <div class="navbar">
@@ -322,15 +324,14 @@
     </div>
   </header>
 
-   Main content with carousel 
+  <!-- Main content with carousel -->
   <div class="content-wrapper">
     <div class="carousel-container">
       <h1 class="project-title" id="project-title">Project Name</h1>
       <p class="project-description" id="project-description">Project description will appear here</p>
       
-      
       <div id="screenshot-carousel" class="owl-carousel owl-theme">
-         Screenshots will be populated by JavaScript 
+        <!-- Screenshots will be populated by JavaScript -->
       </div>
       
       <!-- Added project details sections below carousel -->
@@ -376,25 +377,23 @@
     </div>
   </div>
 
-   
   <div id="social-icons">
     <div class="text-right">
       <ul class="social-icons">
         <li><a href="https://www.facebook.com/edbert.clementius" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-        <!-- <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li> -->
         <li><a href="https://www.linkedin.com/in/clementius-edbert-william-wiguna-b08799296/" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
         <li><a href="https://www.instagram.com/clementius123/" title="Instagram"><i class="fa fa-instagram"></i></a></li>
       </ul>
     </div>
   </div>
 
-  
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
+  <!-- Added custom.js for hamburger menu toggle functionality -->
+  <script src="js/custom.js"></script>
   <script src="js/project-details.js"></script>
   
-   
   <script>
     $(document).ready(function() {
       console.log('[v0] Page loaded, waiting for screenshots...');

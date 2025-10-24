@@ -301,7 +301,8 @@
   if ($(".languages-list").length) {
     $(".languages-list").owlCarousel({
       loop: true,
-      nav: false,
+      nav: true,
+      navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
       dots: true,
       items: 3,
       margin: 30,
@@ -335,7 +336,8 @@
       items: 1,
       loop: true,
       margin: 30,
-      nav: false,
+      nav: true,
+      navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
       dots: true,
       autoplay: true,
       autoplayTimeout: 7000,
@@ -378,6 +380,27 @@
     })
   }
 
+  $(document).on("keydown", (e) => {
+    // Only handle arrow keys
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return
+
+    // Get all active carousels
+    const $carousels = $(".owl-carousel")
+
+    $carousels.each(function () {
+      const $carousel = $(this)
+      const owl = $carousel.data("owl.carousel")
+
+      if (!owl) return
+
+      if (e.key === "ArrowLeft") {
+        owl.prev()
+      } else if (e.key === "ArrowRight") {
+        owl.next()
+      }
+    })
+  })
+
   // Animation
   //   $(window).scroll(() => {
   //     $(".animate").each(function () {
@@ -393,6 +416,7 @@
   //   })
 
   // Contact Form
+
   if ($("#ajax-contact").length) {
     $("#ajax-contact").submit((e) => {
       e.preventDefault()

@@ -1,12 +1,5 @@
 ;(() => {
-  const qs = (id) => document.getElementById(id)
-
-  function getParam(name) {
-    const params = new URLSearchParams(window.location.search)
-    return params.get(name)
-  }
-
-  // One source of truth per project
+  // Project data - single source of truth
   const PROJECTS = {
     proj1: {
       title: "PartnerGO",
@@ -21,7 +14,7 @@
       ],
       tech: ["HTML/CSS (Bootstrap)", "JavaScript (jQuery, Owl Carousel)", "Static hosting"],
       liveUrl: "#",
-      downloadUrl: "#",
+      downloadUrl: "https://drive.google.com/drive/folders/1wkOliMIvOl02G5TjC5Gy_c37EHYwbReF?usp=drive_link",
       screenshots: ["images/partnergo1.png", "images/partnergo2.png", "images/partnergo3.png", "images/partnergo4.png"],
       hero: "images/item-1.jpg",
     },
@@ -73,7 +66,7 @@
       tech: ["HTML/CSS", "JavaScript"],
       liveUrl: "#",
       downloadUrl: "#",
-      screenshots: ["images/item-1.jpg","images/item-1.jpg"],
+      screenshots: ["images/item-1.jpg", "images/item-1.jpg"],
       hero: "images/item-1.jpg",
     },
     proj5: {
@@ -131,90 +124,122 @@
       screenshots: ["images/RUindows square 2.jpg"],
       hero: "images/RUindows square 2.jpg",
     },
+    proj10: {
+      title: "Project 10",
+      description: "Template project. Replace with real description.",
+      overview: "High-level overview of Project 10.",
+      features: ["Key feature A", "Key feature B", "Key feature C"],
+      tech: ["HTML/CSS", "JavaScript"],
+      liveUrl: "#",
+      downloadUrl: "#",
+      screenshots: ["images/item-1.jpg"],
+      hero: "images/item-1.jpg",
+    },
+    proj11: {
+      title: "Project 11",
+      description: "Template project. Replace with real description.",
+      overview: "High-level overview of Project 11.",
+      features: ["Key feature A", "Key feature B", "Key feature C"],
+      tech: ["HTML/CSS", "JavaScript"],
+      liveUrl: "#",
+      downloadUrl: "#",
+      screenshots: ["images/skillsync square bener.jpg"],
+      hero: "images/skillsync square bener.jpg",
+    },
+    proj12: {
+      title: "Project 12",
+      description: "Template project. Replace with real description.",
+      overview: "High-level overview of Project 12.",
+      features: ["Key feature A", "Key feature B", "Key feature C"],
+      tech: ["HTML/CSS", "JavaScript"],
+      liveUrl: "#",
+      downloadUrl: "#",
+      screenshots: ["images/RUindows square 2.jpg"],
+      hero: "images/RUindows square 2.jpg",
+    },
   }
 
-  function populateList(el, items) {
-    if (!el) return
-    el.innerHTML = ""
-    ;(items || []).forEach((text) => {
-      const li = document.createElement("li")
-      li.textContent = text
-      el.appendChild(li)
-    })
+  // Helper function to get URL parameters
+  function getParam(name) {
+    const params = new URLSearchParams(window.location.search)
+    return params.get(name)
   }
 
-  function populateScreenshots(container, shots) {
-    if (!container) {
-      console.error("[v0] Screenshot container not found")
+  // Initialize page when DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("[v0] project-details.js loaded")
+
+    // Get project ID from URL (e.g., ?id=proj1)
+    const projectId = getParam("project") || "proj1"
+    console.log("[v0] Loading project:", projectId)
+
+    const project = PROJECTS[projectId]
+
+    if (!project) {
+      console.error("[v0] Project not found:", projectId)
       return
     }
 
-    if (window.jQuery && window.jQuery(container).data("owl.carousel")) {
-      console.log("[v0] Destroying existing carousel")
-      window.jQuery(container).trigger("destroy.owl.carousel")
-      window.jQuery(container).removeClass("owl-carousel owl-loaded")
+    // Populate project title and description
+    const titleEl = document.getElementById("project-title")
+    const descEl = document.getElementById("project-description")
+    const overviewEl = document.getElementById("project-overview")
+    const featuresEl = document.getElementById("project-features")
+    const techEl = document.getElementById("project-tech")
+    const carouselEl = document.getElementById("screenshot-carousel")
+    const downloadLinkEl = document.getElementById("project-download-link")
+
+    if (titleEl) titleEl.textContent = project.title
+    if (descEl) descEl.textContent = project.description
+    if (overviewEl) overviewEl.textContent = project.overview
+
+    // Populate features list
+    if (featuresEl) {
+      featuresEl.innerHTML = ""
+      project.features.forEach((feature) => {
+        const li = document.createElement("li")
+        li.textContent = feature
+        featuresEl.appendChild(li)
+      })
     }
 
-    container.innerHTML = ""
-
-    const images = Array.isArray(shots) ? shots : []
-    if (images.length === 0) {
-      console.warn("[v0] No screenshots available for this project")
-      return
+    // Populate tech stack list
+    if (techEl) {
+      techEl.innerHTML = ""
+      project.tech.forEach((tech) => {
+        const li = document.createElement("li")
+        li.textContent = tech
+        techEl.appendChild(li)
+      })
     }
 
-    console.log("[v0] Populating " + images.length + " screenshots")
+    // Populate carousel with screenshots
+    if (carouselEl) {
+      carouselEl.innerHTML = ""
+      project.screenshots.forEach((screenshot) => {
+        const div = document.createElement("div")
+        div.className = "item"
+        const img = document.createElement("img")
+        img.src = screenshot
+        img.alt = project.title + " screenshot"
+        div.appendChild(img)
+        carouselEl.appendChild(div)
+      })
 
-    images.forEach((src, index) => {
-      const item = document.createElement("div")
-      item.className = "item"
-      const figure = document.createElement("figure")
-      const img = document.createElement("img")
-      img.src = src
-      img.alt = "Project screenshot " + (index + 1)
-      img.style.width = "100%"
-      img.style.height = "auto"
-      img.style.display = "block"
-      figure.appendChild(img)
-      item.appendChild(figure)
-      container.appendChild(item)
-    })
+      console.log("[v0] Added " + project.screenshots.length + " screenshots to carousel")
 
-    console.log("[v0] Screenshots populated, triggering ready event")
-    const event = new CustomEvent("screenshotsReady", { detail: { count: images.length } })
-    container.dispatchEvent(event)
-  }
+      // Dispatch event to trigger carousel initialization
+      const event = new CustomEvent("screenshotsReady", {
+        detail: { count: project.screenshots.length },
+      })
+      carouselEl.dispatchEvent(event)
+    }
 
-  function render() {
-    const key = getParam("project") || "proj1"
-    const data = PROJECTS[key] || PROJECTS.proj1
+    // Update download link
+    if (downloadLinkEl && project.downloadUrl !== "#") {
+      downloadLinkEl.href = project.downloadUrl
+    }
 
-    // Title + meta
-    if (data.title) document.title = `${data.title} – Project Details`
-    const titleEl = qs("project-title")
-    const descEl = qs("project-description")
-    const overviewEl = qs("project-overview")
-    const featuresEl = qs("project-features")
-    const techEl = qs("project-tech")
-    const shotsEl = qs("project-screenshots") || qs("screenshot-carousel")
-    const liveEl = qs("project-live-link")
-    const dlEl = qs("project-download-link")
-
-    if (titleEl) titleEl.textContent = data.title || ""
-    if (descEl) descEl.textContent = data.description || ""
-    if (overviewEl) overviewEl.textContent = data.overview || ""
-
-    populateList(featuresEl, data.features || [])
-    populateList(techEl, data.tech || [])
-    populateScreenshots(shotsEl, data.screenshots || [])
-
-    if (liveEl) liveEl.href = data.liveUrl || "#"
-    if (dlEl) dlEl.href = data.downloadUrl || "#"
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", render)
-  } else {
-    render()
-  }
+    console.log("[v0] Project details loaded successfully")
+  })
 })()
