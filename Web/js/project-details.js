@@ -4,34 +4,34 @@
     proj1: {
       title: "PartnerGO",
       description:
-        "PartnerGO helps startup founders discover, evaluate, and connect with strategic partners to accelerate growth.",
+        "PartnerGO is a matchmaking platform design to help tech startups discover, evaluate, and connect with strategic business partners to accelerate growth.",
       overview:
-        "Built as a lightweight matchmaking platform for startups seeking partners. It focuses on profile discovery, shortlisting, and outreach with a clean, mobile-first UI.",
+        "Built as a full-stack application, PartnerGO serves as a curated directory for startup seeking partners. It features profile discovery with keyboard/category filters, a shortlist system to save promising profiles, and a contact flow to initiate outreach",
       features: [
         "Partner discovery with keyword and category filters",
         "Shortlist management and saved profiles",
         "Contact request flow with email handoff",
       ],
-      tech: ["HTML/CSS (Bootstrap)", "JavaScript (jQuery, Owl Carousel)", "Static hosting"],
-      liveUrl: "#",
-      downloadUrl: "https://drive.google.com/drive/folders/1wkOliMIvOl02G5TjC5Gy_c37EHYwbReF?usp=drive_link",
+      tech: ["Laravel (PHP)", "MySQL (Database)", "HTML/CSS", "JavaScript"],
+      liveUrl: "https://github.com/scholasticaCeline/partnergo",
+      downloadUrl: "https://github.com/scholasticaCeline/partnergo",
       screenshots: ["images/partnergo1.png", "images/partnergo2.png", "images/partnergo3.png", "images/partnergo4.png"],
       hero: "images/item-1.jpg",
     },
     proj2: {
       title: "Skillsync",
       description:
-        "Skillsync helps users develop practical life skills like cooking, creativity, and programming through curated learning tracks.",
+        "A curated web platform which helps users to discover and master practical skills, from cooking to coding, through dedicated learning tracks.",
       overview:
-        "A content-first site with categorized tracks and progressive modules. Emphasis on clarity, readability, and quick navigation to lessons.",
+        "A responsive, conttent-first front-end application which is built using HTML, CSS (Bootstrap), and JavaScript (jQuery/Vanilla). It functions as a 'Youtube for skills,' organizing lessons into categorized tracks and progressive modules. The primary focus was creating a clean, readable, and highly navigable user interface ffor a smooth learning experience.",
       features: [
-        "Category-based learning tracks",
-        "Progressive modules and bookmarking",
-        "Responsive layouts optimized for reading",
+        "Skill discovery through categorized learning tracks",
+        "Progressive easy-to-follow lesson modules",
+        "Fully responsive design for learning on any device",
       ],
       tech: ["HTML/CSS (Bootstrap)", "JavaScript (vanilla + jQuery)", "Image assets & icons"],
-      liveUrl: "#",
-      downloadUrl: "https://drive.google.com/drive/folders/1c2Nbo1dD6eHqDCzItteVIn6-k2AgsXtI?usp=drive_link",
+      liveUrl: "https://68ff6c236b2b7700d4468e83--singular-dodol-02f8df.netlify.app/",
+      downloadUrl: "https://github.com/Nancie21/SkillSync",
       screenshots: ["images/skillsync4.png", "images/skillsync1.png", "images/skillsync2.png", "images/skillsync3.png"],
       hero: "images/skillsync square bener.jpg",
     },
@@ -59,14 +59,14 @@
       hero: "images/RUindows square 2.jpg",
     },
     proj4: {
-      title: "Project 4",
+      title: "AniVault",
       description: "Template project. Replace with real description.",
       overview: "High-level overview of Project 4.",
       features: ["Key feature A", "Key feature B", "Key feature C"],
       tech: ["HTML/CSS", "JavaScript"],
-      liveUrl: "#",
-      downloadUrl: "#",
-      screenshots: ["images/item-1.jpg", "images/item-1.jpg"],
+      liveUrl: "https://anivault21.netlify.app/",
+      downloadUrl: "https://github.com/Nancie21/Anivaults/tree/main",
+      screenshots: ["images/Anivault1.png", "images/anivault2.png","images/Anivault3.png","images/anivault4.png","images/anivault5.png","images/anivault6.png","images/anivault7.png","images/anivault8.png","images/anivault9.png","images/anivault10.png","images/anivault11.png","images/anivault12.png","images/anivault13.png"],
       hero: "images/item-1.jpg",
     },
     proj5: {
@@ -188,6 +188,7 @@
     const techEl = document.getElementById("project-tech")
     const carouselEl = document.getElementById("screenshot-carousel")
     const downloadLinkEl = document.getElementById("project-download-link")
+    const liveLinkEl = document.getElementById("project-live-link")
 
     if (titleEl) titleEl.textContent = project.title
     if (descEl) descEl.textContent = project.description
@@ -238,6 +239,10 @@
     // Update download link
     if (downloadLinkEl && project.downloadUrl !== "#") {
       downloadLinkEl.href = project.downloadUrl
+    }
+
+    if (liveLinkEl && project.liveUrl !== "#") {
+      liveLinkEl.href = project.liveUrl
     }
 
     console.log("[v0] Project details loaded successfully")
