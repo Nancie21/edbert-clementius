@@ -52,7 +52,7 @@
         "images/RUindows1.png",
         "images/RUindows2.png",
         "images/RUindows3.png",
-        "images/RUindows4.png",
+        "images/Ruindows4.png",
         "images/RUindows5.png",
         "images/RUindows6.png",
       ],
