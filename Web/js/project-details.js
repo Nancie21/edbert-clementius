@@ -30,7 +30,7 @@
         "Fully responsive design for learning on any device",
       ],
       tech: ["HTML/CSS (Bootstrap)", "JavaScript (vanilla + jQuery)", "Image assets & icons"],
-      liveUrl: "https://68ff6c236b2b7700d4468e83--singular-dodol-02f8df.netlify.app/",
+      liveUrl: "https://skillsync2101.netlify.app",
       downloadUrl: "https://github.com/Nancie21/SkillSync",
       screenshots: ["images/skillsync4.png", "images/skillsync1.png", "images/skillsync2.png", "images/skillsync3.png"],
       hero: "images/skillsync square bener.jpg",
